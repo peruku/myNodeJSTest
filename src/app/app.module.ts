@@ -10,6 +10,9 @@ import { SignupComponent } from './signup/signup.component';
 import { MembersComponent } from './members/members.component';
 import { AuthGuard } from './auth.service';
 import { routes } from './app.routes';
+import { CartComponent } from './cart/cart.component';
+import { HomeComponent } from './home/home.component';
+import { ListComponent } from './list/list.component';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyDOvArG45o-OeCycvI4Au9LkOlzksJPo7A",
@@ -25,7 +28,10 @@ export const firebaseConfig = {
     LoginComponent,
     EmailComponent,
     SignupComponent,
-    MembersComponent
+    MembersComponent,
+    CartComponent,
+    HomeComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
