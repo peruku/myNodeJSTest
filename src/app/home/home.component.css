@@ -1,9 +1,20 @@
-.demo-card-square.mdl-card {
-  width: 320px;
-  height: 320px;
+.mdl-grid {
+	max-width: 600px;
 }
-.demo-card-square > .mdl-card__title {
-  color: #fff;
-  background:
-    url('../assets/demos/dog.png') bottom right 15% no-repeat #46B6AC;
+.mdl-card__media {
+	margin: 0;
 }
+.mdl-card__media > img {
+/*	max-width: 70%;
+  max-height: 70%;*/
+}
+.mdl-card__actions {
+	display: flex;
+	box-sizing:border-box;
+	align-items: center;
+}
+.mdl-card__actions > .mdl-button--icon {
+	margin-right: 3px;
+	margin-left: 3px;
+}
+
