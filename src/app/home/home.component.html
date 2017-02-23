@@ -36,11 +36,34 @@
   <main class="mdl-layout__content">
     <div class="page-content">
       <div class="mdl-layout mdl-js-layout mdl-color--grey-100">
-	      <main class="mdl-layout__content">
+        <main class="mdl-layout__content">
+          <div class="mdl-grid">
+              <div class="mdl-card mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-shadow--2dp" *ngFor="let item of cartList | async" >
+              <figure class="mdl-card__media">
+                <img src="{{item.image}}" alt="" />
+              </figure>
+              <div class="mdl-card__title">
+                <h4 class="mdl-card__title-text">{{item.name }}</h4>
+              </div>
+              <div class="mdl-card__supporting-text">
+                <p>{{item.description }}</p>
+                <p class="mdl-button--colored">{{item.price }}</p>
+              </div>
+							<div class="mdl-card__actions mdl-card--border">
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+                  <i class="material-icons">shopping_cart</i>Add to Cart
+                </button>
+                <div class="mdl-layout-spacer"></div>
+    	          <button class="mdl-button mdl-button--icon mdl-button--colored"><i class="material-icons">favorite</i></button>
+					      <button class="mdl-button mdl-button--icon mdl-button--colored"><i class="material-icons">share</i></button>
+	            </div>
+			      </div>
+          </div>
+        </main>
+	      <!--main class="mdl-layout__content">
 		      <div class="mdl-grid">
 			      <div class="mdl-card mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-shadow--2dp">
               <figure class="mdl-card__media">
-                <!--img src="http://tfirdaus.github.io/mdl/images/laptop.jpg" alt="" /-->
                 <img src="https://images-cdn.azureedge.net/azure/in-resources/827b177a-1eb2-468a-8f46-d934f87f2ac2/Images/ProductImages/Source/GRISOPR015858-2.jpg;width=300;height=381;scale=canvas;anchor=bottomcenter" alt="" />
               </figure>
               <div class="mdl-card__title">
@@ -61,7 +84,6 @@
 			      </div>			
             <div class="mdl-card mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-shadow--2dp">
               <figure class="mdl-card__media">
-                <!--img src="http://tfirdaus.github.io/mdl/images/html5.jpg" alt="" /-->
                 <img src="https://images-cdn.azureedge.net/azure/in-resources/827b177a-1eb2-468a-8f46-d934f87f2ac2/Images/ProductImages/Source/GPUMOST0940065_optimized.jpg;width=300;height=381;scale=canvas;anchor=bottomcenter" alt="" />
               </figure>
               <div class="mdl-card__title">
@@ -82,7 +104,7 @@
             </div>
             <div class="mdl-card mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-shadow--2dp">
               <figure class="mdl-card__media">
-                <!--img src="http://tfirdaus.github.io/mdl/images/laptop.jpg" alt="" /-->
+                
                 <img src="https://images-cdn.azureedge.net/azure/in-resources/827b177a-1eb2-468a-8f46-d934f87f2ac2/Images/ProductImages/Source/GRISOPR015858-2.jpg;width=300;height=381;scale=canvas;anchor=bottomcenter" alt="" />
               </figure>
               <div class="mdl-card__title">
@@ -103,7 +125,7 @@
 			      </div>			
             <div class="mdl-card mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-shadow--2dp">
               <figure class="mdl-card__media">
-                <!--img src="http://tfirdaus.github.io/mdl/images/html5.jpg" alt="" /-->
+             
                 <img src="https://images-cdn.azureedge.net/azure/in-resources/827b177a-1eb2-468a-8f46-d934f87f2ac2/Images/ProductImages/Source/GPUMOST0940065_optimized.jpg;width=300;height=381;scale=canvas;anchor=bottomcenter" alt="" />
               </figure>
               <div class="mdl-card__title">
@@ -123,7 +145,7 @@
               </div>
             </div>
 		      </div>
-	      </main>
+	      </main-->
       </div>
     </div>
   </main>
