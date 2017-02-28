@@ -37,3 +37,22 @@ h2 {
         margin-left: -45%;
     }
 }
+body {
+  background: #5C6BC0;
+}
+.mdl-card {
+  margin-top: 40px;
+  margin-left: auto;
+  margin-bottom: 40px;
+  margin-right: auto;
+}
+.mdl-card-order > .mdl-card__title {
+  color: #fff;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background: #3F51B5;   
+  /* 
+  background: #3F51B5 url("images/mastercard.jpg") center;
+  background-size: cover; 
+  */
+}

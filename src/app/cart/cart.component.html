@@ -1,3 +1,33 @@
-<p>
-  cart works!
-</p>
+<div class="mdl-grid">
+  <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+    <thead>
+      <tr>
+        <th class="mdl-data-table__cell--non-numeric">Cart Item</th>
+        <th>Quantity</th>
+        <th>Unit price</th>
+        <th>Total price</th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of myCartList | async" >
+        <td class="mdl-data-table__cell--non-numeric">{{item.name}}</td>
+        <td>{{item.quantity}}</td>
+        <td>&#8377;&nbsp;{{item.priceAtCart}}</td>
+        <td>&#8377;&nbsp;{{item.quantity * item.priceAtCart}}</td>
+        <td>
+          <button (click)="removeFromCart(item.$key,item.priceAtCart ,item.quantity)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+             <i class="material-icons">ic_delete_forever</i>
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td class="mdl-data-table__cell--non-numeric">&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>Total Amout</td>
+        <td>&#8377;&nbsp;{{totalPrice }}</td>
+        <td><i class="material-icons">shopping_cart</i></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

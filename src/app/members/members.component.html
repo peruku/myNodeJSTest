@@ -1,11 +1,250 @@
-<div class="form-container" id="toolbar">
+<!--div class="form-container" id="toolbar">
     <header [@fallIn]="state">
       <button (click)="logout()" class="basic-btn">Logout</button>
     </header>
     <div id="page" [@moveInLeft]="state">
       <h2>Hey {{ name.auth.displayName }}!</h2>
-
-      <img src="assets/images/filler.png" />
     </div>
     
+</div-->
+
+<!--div class="mdl-grid">
+<div class="mdl-card mdl-cell mdl-cell--6-col mdl-card-order mdl-shadow--8dp">
+		<div class="mdl-card__title">
+      <h2 class="mdl-card__title-text">{{ name.auth.displayName }}</h2>
+		</div>	
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="companyName" name="companyName" ng-model="data.companyName" ng-required="true" />
+              <label class="mdl-textfield__label" for="companyName">Company name*</label>
+              <span class="mdl-tooltip mdl-tooltip--validation" for="companyName" ng-show="form.companyName.$invalid && form.companyName.$touched">
+                        <span ng-show="form.companyName.$error.required">Required.</span>
+              </span>
+            </div>
+		<div class="mdl-card__supporting-text mdl-grid">
+			<form action="#">
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+					<input class="mdl-textfield__input" type="text" id="city" placeholder="City : Banglore"/>
+					<label class="mdl-textfield__label" for="city">City</label>
+				</div>
+				<div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--12-col">
+					<input class="mdl-textfield__input" type="text" id="cardnumber" placeholder="XXXX XXXX XXXX XXXX" pattern="-?[0-9]*(\.[0-9]+)?" maxlength="16" />
+          <label class="mdl-textfield__label" for="cardnumber">XXXX XXXX XXXX XXXX</label>
+          <span class="mdl-textfield__error">Input is not a number!</span>
+				</div>
+				<div class="mdl-cell mdl-cell--12-col">
+					<div class="mdl-textfield mdl-js-textfield mdl-cell--6-col">
+						<input class="mdl-textfield__input" type="text" id="expire" placeholder="MM / YY" maxlength="5" />
+            <label class="mdl-textfield__label" for="expire">MM / YY</label>
+					</div>
+					<div class="mdl-textfield mdl-js-textfield mdl-cell--6-col">
+						<input class="mdl-textfield__input" type="text" id="ccv" placeholder="CCV" pattern="-?[0-9]*(\.[0-9]+)?" maxlength="3" />
+            <label class="mdl-textfield__label" for="ccv">CCV</label>
+            <span class="mdl-textfield__error">Input is not a number!</span>
+					</div>
+				</div>
+				<div class="mdl-card__actions mdl-cell--12-col send-button">
+				<button class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--raised mdl-button--colored" id="send">
+						Update 	
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+<div class="jumbotron">
+    <h2>Form with Validations</h2>
+    <form [formGroup]="complexForm" (ngSubmit)="submitForm(complexForm.value)">
+      <div class="form-group" [ngClass]="{'has-error':!complexForm.controls['firstName'].valid && complexForm.controls['firstName'].touched}">
+        <label>First Name:</label>
+        <input class="form-control" type="text" placeholder="John" [formControl]="complexForm.controls['firstName']">
+        <-- The hasError method will tell us if a particular error exists ->
+        <div *ngIf="complexForm.controls['firstName'].hasError('required') && complexForm.controls['firstName'].touched" class="alert alert-danger">You must include a first name.</div>
+      </div>
+      <div class="form-group" [ngClass]="{'has-error':!complexForm.controls['lastName'].valid && complexForm.controls['lastName'].touched}">
+        <label>Last Name</label>
+        <input class="form-control" type="text" placeholder="Doe" [formControl]="complexForm.controls['lastName']">
+        <- The hasError method can work with the built in validators but custom validators as well ->
+        <div *ngIf="complexForm.controls['lastName'].hasError('required') && complexForm.controls['lastName'].touched" class="alert alert-danger">You must include a last name.</div>
+        <div *ngIf="complexForm.controls['lastName'].hasError('minlength') && complexForm.controls['lastName'].touched" class="alert alert-danger">Your last name must be at least 5 characters long.</div>
+        <div *ngIf="complexForm.controls['lastName'].hasError('maxlength') && complexForm.controls['lastName'].touched" class="alert alert-danger">Your last name cannot exceed 10 characters.</div>
+      </div>
+      <div class="form-group">
+        <label>Gender</label>
+        <div class="alert alert-danger" *ngIf="!complexForm.controls['gender'].valid && complexForm.controls['gender'].touched">You must select a gender.</div>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="gender" value="Male" [formControl]="complexForm.controls['gender']">
+          Male
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="gender" value="Female" [formControl]="complexForm.controls['gender']">
+          Female
+        </label>
+      </div>
+      <div class="form-group">
+        <label>Activities</label>
+      </div>
+      <label class="checkbox-inline">
+        <input type="checkbox" value="hiking" name="hiking" [formControl]="complexForm.controls['hiking']"> Hiking
+      </label>
+      <label class="checkbox-inline">
+        <input type="checkbox" value="swimming" name="swimming" [formControl]="complexForm.controls['swimming']"> Swimming
+      </label>
+      <label class="checkbox-inline">
+        <input type="checkbox" value="running" name="running" [formControl]="complexForm.controls['running']"> Running
+      </label>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary" [disabled]="!complexForm.valid">Submit</button>
+      </div>
+    </form>
+  </div>
+
+
+
+</div-->
+
+<!--div ng-app="validationApp" ng-controller="mainController" class="layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
+		<main class="mdl-layout__content" data-ng-view="" ng-class="render.mdlColor? render.mdlColor : 'mdl-color--grey-100'">
+				<div class="mdl-grid">
+						<div class="mdl-cell mdl-cell--12-col">
+								<h4>Registration Form!</h4>
+								<h5 ng-if="formStatus">{{formStatus}}</h5>
+        <form name="form" ng-submit="submit()" novalidate>
+          <fieldset>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="companyName" name="companyName" ng-model="data.companyName" ng-required="true" />
+              <label class="mdl-textfield__label" for="companyName">Company name*</label>
+              <span class="mdl-tooltip mdl-tooltip--validation" for="companyName" ng-show="form.companyName.$invalid && form.companyName.$touched">
+                        <span ng-show="form.companyName.$error.required">Required.</span>
+              </span>
+						</div>
+          </fieldset>
+          <fieldset>
+            <ul class="list-unstyled">
+              <li>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="text" id="name" name="name" pattern="[A-Za-z\s]*" ng-model="data.name" ng-required="true" />
+                  <label class="mdl-textfield__label" for="name">Full name*</label>
+                  <span class="mdl-tooltip mdl-tooltip--validation" for="name" ng-show="form.name.$invalid && form.name.$touched">
+                                <span ng-show="form.name.$error.required">Required.</span>
+                  <span ng-show="form.name.$error.pattern">Invalid pattern.</span>
+                  </span>
+                </div>
+              </li>
+              <li>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="email" id="email" name="email" ng-model="data.email" ng-required="true" />
+                  <label class="mdl-textfield__label" for="email">Email*</label>
+                  <span class="mdl-tooltip mdl-tooltip--validation" for="email" ng-show="form.email.$invalid && form.email.$touched">
+                                <span ng-show="form.email.$error.required">Required.</span>
+                  <span ng-show="form.email.$error.email">Invalid email.</span>
+                  </span>
+                </div>
+              </li>
+              <li>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="text" id="login" name="login" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]*" minlength="3" ng-model="data.login" ng-required="true" />
+                  <label class="mdl-textfield__label" for="login">Login*</label>
+                  <span class="mdl-tooltip mdl-tooltip--validation" for="login" ng-show="form.login.$invalid && form.login.$touched">
+                                <span ng-show="form.login.$error.required">Required.</span>
+                  <span ng-show="form.login.$error.pattern">Invalid pattern.</span>
+                  <span ng-show="form.login.$error.minlength">Minimum of three characters.</span>
+                  </span>
+                </div>
+              </li>
+              <li>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="password" id="password" name="password" ng-model="data.password" ng-required="true" />
+                  <label class="mdl-textfield__label" for="password">Password*</label>
+                  <span class="mdl-tooltip mdl-tooltip--validation" for="password" ng-show="form.password.$invalid && form.password.$touched">
+                                <span ng-show="form.password.$error.required">Required.</span>
+                  </span>
+                </div>
+              </li>
+              <li>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="password" id="confirmPassword" name="confirmPassword" ng-model="data.confirmPassword" ng-required="true" field-match="data.password" />
+                  <label class="mdl-textfield__label" for="confirmPassword">Confirm Password*</label>
+                  <span class="mdl-tooltip mdl-tooltip--validation" for="confirmPassword" ng-show="form.confirmPassword.$invalid && form.confirmPassword.$touched">
+                                <span ng-show="form.confirmPassword.$error.required">Required.</span>
+                  <span ng-show="form.confirmPassword.$error.fieldmatch">Passwords do not match.</span>
+                  </span>
+                </div>
+              </li>
+            </ul>
+          </fieldset>
+          <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored  mdl-js-ripple-effect">Register</button>
+        </form>
+      </div>
+    </div>
+  </main>
+</div-->
+
+<div class="layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <main class="mdl-layout__content">
+    <div class="mdl-grid">
+      <div class="mdl-cell mdl-cell--12-col">
+        <h4>{{ name.auth.displayName }}</h4>
+        <form [formGroup]="updateForm" (ngSubmit)="submitForm(updateForm.value)">
+
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="number" id="mobile" [formControl]="updateForm.controls['mobile']" [(ngModel)]="user.mobile" />
+              <label class="mdl-textfield__label" for="mobile">mobile*</label>
+              <span class="mdl-tooltip mdl-tooltip--validation" for="mobile" ng-show="updateForm.controls['mobile'].hasError('required') && updateForm.controls['mobile'].touched">
+                  <span ng-show="updateForm.controls['mobile'].hasError('required')">Required.</span>
+              </span>
+						</div>
+
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="city" [formControl]="updateForm.controls['city']"  [(ngModel)]="user.city" />
+              <label class="mdl-textfield__label" for="city">City*</label>
+              <span class="mdl-tooltip mdl-tooltip--validation" for="city" ng-show="updateForm.controls['city'].hasError('required') && updateForm.controls['city'].touched">
+                  <span ng-show="updateForm.controls['city'].hasError('required')">Required.</span>
+              </span>
+						</div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="houseAddress" [formControl]="updateForm.controls['houseAddress']"  [(ngModel)]="user.houseAddress" />
+              <label class="mdl-textfield__label" for="houseAddress">House Address*</label>
+              <span class="mdl-tooltip mdl-tooltip--validation" for="houseAddress" ng-show="updateForm.controls['houseAddress'].hasError('required') && updateForm.controls['houseAddress'].touched">
+                  <span ng-show="updateForm.controls['houseAddress'].hasError('required')">Required.</span>
+              </span>
+						</div>
+
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="residComp" [formControl]="updateForm.controls['residComp']"  [(ngModel)]="user.residComp" />
+              <label class="mdl-textfield__label" for="residComp">residential Complex</label>
+						</div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="area" [formControl]="updateForm.controls['area']"  [(ngModel)]="user.area" />
+              <label class="mdl-textfield__label" for="area">Area*</label>
+              <span class="mdl-tooltip mdl-tooltip--validation" for="area" ng-show="updateForm.controls['area'].hasError('required') && updateForm.controls['area'].touched">
+                  <span ng-show="updateForm.controls['area'].hasError('required')">Required.</span>
+              </span>
+						</div>
+
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="number" id="pincode" [formControl]="updateForm.controls['pincode']"  [(ngModel)]="user.pincode" />
+              <label class="mdl-textfield__label" for="pincode">pincode*</label>
+              <span class="mdl-tooltip mdl-tooltip--validation" for="pincode" ng-show="updateForm.controls['pincode'].hasError('required') && updateForm.controls['pincode'].touched">
+                  <span ng-show="updateForm.controls['pincode'].hasError('required')">Required.</span>
+              </span>
+						</div>
+
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="streetD" [formControl]="updateForm.controls['streetD']"  [(ngModel)]="user.streetD" />
+              <label class="mdl-textfield__label" for="streetD">Street Details</label>
+						</div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="landM" [formControl]="updateForm.controls['landM']"  [(ngModel)]="user.landM" />
+              <label class="mdl-textfield__label" for="landM">LandMark</label>
+						</div>
+
+          <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored  mdl-js-ripple-effect" [disabled]="!updateForm.valid">Update</button>
+        </form>
+      </div>
+    </div>
+  </main>
 </div>

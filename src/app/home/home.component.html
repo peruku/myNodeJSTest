@@ -25,10 +25,12 @@
     </div>
   </header>
   <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">Profile : {{displayName }}</span>
+    <span class="mdl-layout-title"> 
+        <a routerLink="/members" routerLinkActive="active" class="alc">Profile : <strong>{{displayName }}</strong></a>
+    </span>
     <nav class="mdl-navigation">
       <a class="mdl-navigation__link" href="">Home</a>
-      <a class="mdl-navigation__link" href="">Cart</a>
+      <a routerLink="/cart" routerLinkActive="active" class="mdl-navigation__link" href="">Cart</a>
       <a class="mdl-navigation__link" href="">Order History</a>
       <a class="mdl-navigation__link" href="">Upcoming</a>
     </nav>
@@ -38,7 +40,7 @@
       <div class="mdl-layout mdl-js-layout mdl-color--grey-100">
         <main class="mdl-layout__content">
           <div class="mdl-grid">
-              <div class="mdl-card mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-shadow--2dp" *ngFor="let item of cartList | async" >
+            <div class="mdl-card mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-shadow--2dp" *ngFor="let item of cartList | async" >
               <figure class="mdl-card__media">
                 <img src="{{item.image}}" alt="" />
               </figure>
@@ -47,15 +49,15 @@
               </div>
               <div class="mdl-card__supporting-text">
                 <p>{{item.description }}</p>
-                <p class="mdl-button--colored">{{item.price }}</p>
+                <a>&#8377;&nbsp;{{item.price }}</a>
               </div>
 							<div class="mdl-card__actions mdl-card--border">
-                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+                <button (click)="clickShipid(item.ID,item.name, item.price, 1)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
                   <i class="material-icons">shopping_cart</i>Add to Cart
                 </button>
-                <div class="mdl-layout-spacer"></div>
+                <!--div class="mdl-layout-spacer"></div>
     	          <button class="mdl-button mdl-button--icon mdl-button--colored"><i class="material-icons">favorite</i></button>
-					      <button class="mdl-button mdl-button--icon mdl-button--colored"><i class="material-icons">share</i></button>
+					      <button class="mdl-button mdl-button--icon mdl-button--colored"><i class="material-icons">share</i></button-->
 	            </div>
 			      </div>
           </div>
