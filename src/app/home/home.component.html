@@ -53,14 +53,14 @@
                 <a>&#8377;&nbsp;{{item.price }}</a>
               </div>
 							<div class="mdl-card__actions mdl-card--border"><!-- (click)="clickShipid(item.ID,item.name, item.price, item.userQuantity-1)" -->
-                <button *ngIf="!item.userCartQuantity" (click)="addToCart(item.$key, 1)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+                <button *ngIf="!item.userCartQuantity" (click)="addToCart(item.$key, item.name, item.price, 1)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
                   <i class="material-icons">shopping_cart</i>Add to Cart
                 </button>
-                  <button *ngIf="item.userCartQuantity" (click)="addToCart(item.$key, item.userCartQuantity-1)" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect  mdl-button--raised ">
+                  <button *ngIf="item.userCartQuantity" (click)="addToCart(item.$key, item.name, item.price, item.userCartQuantity-1)" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect  mdl-button--raised ">
                     <i class="material-icons">remove</i>
                   </button>
                   <button *ngIf="item.userCartQuantity" class="mdl-button mdl-js-button">{{item.userCartQuantity}}</button>
-                  <button *ngIf="item.userCartQuantity" (click)="addToCart(item.$key, item.userCartQuantity+1)" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+                  <button *ngIf="item.userCartQuantity" (click)="addToCart(item.$key, item.name, item.price, item.userCartQuantity+1)" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
                     <i class="material-icons">add</i>
                   </button>
 	            </div>
