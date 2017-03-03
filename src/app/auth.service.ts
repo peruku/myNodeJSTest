@@ -8,8 +8,10 @@ import 'rxjs/add/operator/take';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
-
-    constructor(private auth: AngularFireAuth, private router: Router) {}
+    userLogin: boolean = false;
+    constructor(private auth: AngularFireAuth, private router: Router) {
+      
+    }
 
     canActivate(): Observable<boolean> {
       return Observable.from(this.auth)
@@ -18,6 +20,22 @@ export class AuthGuard implements CanActivate {
         .do(authenticated => {
       if 
         (!authenticated) this.router.navigate([ '/login' ]);
+      })
+    }
+
+    isLoggedIn(): Observable<boolean> {
+      return Observable.from(this.auth)
+        .take(1)
+        .map(state => !!state)
+        .do(authenticated => {
+      if(!authenticated){
+           this.userLogin = false;
+           return false;
+        } 
+        else{
+          this.userLogin = true;
+          return true;
+        } 
       })
     }
  

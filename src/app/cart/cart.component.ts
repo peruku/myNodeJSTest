@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs'
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/filter";
+import { MycartService } from '../mycart.service';
 
 @Component({
   selector: 'app-cart',
@@ -16,7 +17,7 @@ export class CartComponent implements OnInit {
   totalPrice: number = 0;
   authId: any;
 
-  constructor(public af: AngularFire) {
+  constructor(public af: AngularFire, private _mycartService: MycartService) {
 
     this.af.auth.subscribe(auth => {
       if(auth) {
@@ -24,9 +25,11 @@ export class CartComponent implements OnInit {
         this.myCartList = af.database.list(`/userInfo/${this.authId}/userCart`)
          .map(items => { return items.filter(item =>{
           if((<any>item).status === 1){
-            console.log((<any>item).name + " - " +this.totalPrice);
-            this.totalPrice += (<any>item).quantity * (<any>item).priceAtCart;
-            console.log(this.totalPrice);
+            
+            //this.totalPrice += (<any>item).quantity * (<any>item).priceAtCart;
+            //console.log(this.totalPrice);
+            item.info = this._mycartService.getCartItem(item.$key);
+            console.log((<any>item).info.name + " - " +this.totalPrice);
             return item;
           }
          } ); });

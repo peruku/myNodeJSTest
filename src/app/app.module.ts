@@ -14,6 +14,9 @@ import { routes } from './app.routes';
 import { CartComponent } from './cart/cart.component';
 import { HomeComponent } from './home/home.component';
 import { ListComponent } from './list/list.component';
+import { UserService } from './user.service';
+import { MycartService } from './mycart.service';
+
 
 export const firebaseConfig = {
     apiKey: "AIzaSyDOvArG45o-OeCycvI4Au9LkOlzksJPo7A",
@@ -42,7 +45,7 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     routes
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard,UserService,MycartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

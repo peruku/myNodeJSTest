@@ -4,6 +4,7 @@
     <div class="mdl-layout__header-row">
       <!-- Title -->
       <span class="mdl-layout-title">Dal2U</span>
+      <span class="mdl-layout-title"><a>&#8377;&nbsp;{{totalPriceAtCart}}</a></span>
       <!-- Add spacer, to align navigation to the right -->
       <div class="mdl-layout-spacer"></div>
       <!-- Colored icon button -->
@@ -40,7 +41,7 @@
       <div class="mdl-layout mdl-js-layout mdl-color--grey-100">
         <main class="mdl-layout__content">
           <div class="mdl-grid">
-            <div class="mdl-card mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-shadow--2dp" *ngFor="let item of cartList | async" >
+            <div class="mdl-card mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-shadow--2dp" *ngFor="let item of cartHomeList | async" >
               <figure class="mdl-card__media">
                 <img src="{{item.image}}" alt="" />
               </figure>
@@ -51,13 +52,17 @@
                 <p>{{item.description }}</p>
                 <a>&#8377;&nbsp;{{item.price }}</a>
               </div>
-							<div class="mdl-card__actions mdl-card--border">
-                <button (click)="clickShipid(item.ID,item.name, item.price, 1)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+							<div class="mdl-card__actions mdl-card--border"><!-- (click)="clickShipid(item.ID,item.name, item.price, item.userQuantity-1)" -->
+                <button *ngIf="!item.userCartQuantity" (click)="addToCart(item.$key, 1)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
                   <i class="material-icons">shopping_cart</i>Add to Cart
                 </button>
-                <!--div class="mdl-layout-spacer"></div>
-    	          <button class="mdl-button mdl-button--icon mdl-button--colored"><i class="material-icons">favorite</i></button>
-					      <button class="mdl-button mdl-button--icon mdl-button--colored"><i class="material-icons">share</i></button-->
+                  <button *ngIf="item.userCartQuantity" (click)="addToCart(item.$key, item.userCartQuantity-1)" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect  mdl-button--raised ">
+                    <i class="material-icons">remove</i>
+                  </button>
+                  <button *ngIf="item.userCartQuantity" class="mdl-button mdl-js-button">{{item.userCartQuantity}}</button>
+                  <button *ngIf="item.userCartQuantity" (click)="addToCart(item.$key, item.userCartQuantity+1)" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+                    <i class="material-icons">add</i>
+                  </button>
 	            </div>
 			      </div>
           </div>
