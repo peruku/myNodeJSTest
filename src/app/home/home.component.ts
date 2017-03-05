@@ -8,6 +8,8 @@ import * as firebase from 'firebase';
 import { UserService } from '../user.service';
 import { MycartService } from '../mycart.service';
 import { AuthGuard } from '../auth.service';
+import { MdlDirective } from '../mdl.directive';
+
 
 
 @Component({
@@ -32,6 +34,8 @@ export class HomeComponent implements OnInit {
   myCartList: Observable<any>;
   myUserInfo: Observable<any>;
   userCartList: Observable<any>;
+  exp2Total: Observable<any>;
+
 
   constructor(public af: AngularFire,
               private router: Router,
@@ -65,7 +69,24 @@ export class HomeComponent implements OnInit {
           });
       } 
     }
-    else console.log("User not logged IN");
+    else{
+      console.log("User not logged IN");
+      /* now getting 
+      error_handler.js:54 EXCEPTION: Uncaught (in promise): TypeError: Illegal invocation
+TypeError: Illegal invocation
+
+      this.af.auth.login({
+        method: AuthMethods.Anonymous,
+        provider: AuthProviders.Anonymous
+      }).then(
+          (success) => {
+          console.log(success);
+        }).catch(
+          (err) => {
+          console.log(err);
+        });
+        */
+    } 
     
   }
   
@@ -99,6 +120,20 @@ export class HomeComponent implements OnInit {
                   //console.log(list);
                  this.totalPriceAtCart = this._mycartService.getTotalCartPrice();
                });
+
+               this.exp2Total = this._mycartService.getUserCartList(user.auth.uid)
+             .map(items => {
+               let total = 0;
+               items.map(item => {
+                 //console.log(item);
+                 total += item.quantity * item.priceAtCart;
+                 //console.log("Full"+total);
+               })
+               return total;
+              });
+             
+           this.exp2Total.subscribe(console.log);
+
       }
       else {
         console.log("User Not Signed IN");

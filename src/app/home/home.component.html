@@ -1,10 +1,11 @@
 <!-- Always shows a header, even in smaller screens. -->
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header"><!--" mdl-layout--fixed-drawer"-->
+<div  class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header"><!--" mdl-layout--fixed-drawer"-->
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
       <!-- Title -->
       <span class="mdl-layout-title">Dal2U</span>
-      <span class="mdl-layout-title"><a>&#8377;&nbsp;{{totalPriceAtCart}}</a></span>
+      <span class="mdl-layout-title"><a>&#8377;&nbsp;{{totalPriceAtCart}}</a>-|-
+      &#8377;&nbsp;{{exp2Total | async}}</span>
       <!-- Add spacer, to align navigation to the right -->
       <div class="mdl-layout-spacer"></div>
       <!-- Colored icon button -->

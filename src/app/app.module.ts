@@ -16,6 +16,8 @@ import { HomeComponent } from './home/home.component';
 import { ListComponent } from './list/list.component';
 import { UserService } from './user.service';
 import { MycartService } from './mycart.service';
+import { MdlDirective } from './mdl.directive';
+
 
 
 export const firebaseConfig = {
@@ -35,7 +37,8 @@ export const firebaseConfig = {
     MembersComponent,
     CartComponent,
     HomeComponent,
-    ListComponent
+    ListComponent,
+    MdlDirective
   ],
   imports: [
     BrowserModule,
